@@ -169,36 +169,64 @@
 //
 //    return 0;
 //}
+//#include <iostream>
+//#include <string>
+//#include <algorithm>
+//#include <Windows.h>
+//bool isPalindrome(const std::string& str) {
+//    std::string cleanedStr;
+//   
+//    for (char c : str) {
+//        if (std::isalnum(c)) {
+//            cleanedStr += std::tolower(c);
+//        }
+//    }
+//    
+//    std::string reversedStr = cleanedStr;
+//    std::reverse(reversedStr.begin(), reversedStr.end());
+//    return cleanedStr == reversedStr;
+//}
+//
+//int main() {
+//    SetConsoleCP(1251);
+//    SetConsoleOutputCP(1251);
+//    std::string input;
+//    std::cout << "Введіть рядок: ";
+//    std::getline(std::cin, input);
+//
+//    if (isPalindrome(input)) {
+//        std::cout << "Рядок є паліндромом." << std::endl;
+//    }
+//    else {
+//        std::cout << "Рядок не є паліндромом." << std::endl;
+//    }
+//
+//    return 0;
+//}
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <Windows.h>
-bool isPalindrome(const std::string& str) {
-    std::string cleanedStr;
-   
-    for (char c : str) {
-        if (std::isalnum(c)) {
-            cleanedStr += std::tolower(c);
-        }
-    }
-    
-    std::string reversedStr = cleanedStr;
-    std::reverse(reversedStr.begin(), reversedStr.end());
-    return cleanedStr == reversedStr;
-}
+using namespace std;
 
 int main() {
+    string alphabet = "АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ";
+    char letter;
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    std::string input;
-    std::cout << "Введіть рядок: ";
-    std::getline(std::cin, input);
+    cout << "Введіть букву: ";
+    cin >> letter;
 
-    if (isPalindrome(input)) {
-        std::cout << "Рядок є паліндромом." << std::endl;
+
+    size_t index = alphabet.find(letter);
+
+    if (index == string::npos) {
+        cout << "Неправильна буква" << endl;
+    }
+    else if (index == alphabet.length() - 1) {
+        cout << "Далі букв немає" << endl;
     }
     else {
-        std::cout << "Рядок не є паліндромом." << std::endl;
+        cout << "Наступна буква: " << alphabet[index + 1] << endl;
     }
 
     return 0;
