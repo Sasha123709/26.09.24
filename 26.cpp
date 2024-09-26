@@ -139,33 +139,67 @@
 //
 //    return 0;
 //}
+//#include <iostream>
+//#include <string>
+//#include <Windows.h>
+//using namespace std;
+//
+//int main() {
+//    string sentence;
+//    int wordCount = 0;
+//    SetConsoleCP(1251);
+//    SetConsoleOutputCP(1251);
+//    cout << "Введіть речення: ";
+//    getline(cin, sentence);
+//
+//    // Підрахунок слів
+//    bool inWord = false;
+//    for (int i = 0; i < sentence.length(); i++) {
+//        if (isspace(sentence[i])) {
+//            inWord = false;
+//        }
+//        else if (!inWord) {
+//            inWord = true;
+//            wordCount++;
+//        }
+//    }
+//
+//
+//    cout << "Кількість слів: " << wordCount << endl;
+//
+//    return 0;
+//}
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <Windows.h>
-using namespace std;
-
-int main() {
-    string sentence;
-    int wordCount = 0;
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-    cout << "Введіть речення: ";
-    getline(cin, sentence);
-
-    // Підрахунок слів
-    bool inWord = false;
-    for (int i = 0; i < sentence.length(); i++) {
-        if (isspace(sentence[i])) {
-            inWord = false;
-        }
-        else if (!inWord) {
-            inWord = true;
-            wordCount++;
+bool isPalindrome(const std::string& str) {
+    std::string cleanedStr;
+   
+    for (char c : str) {
+        if (std::isalnum(c)) {
+            cleanedStr += std::tolower(c);
         }
     }
+    
+    std::string reversedStr = cleanedStr;
+    std::reverse(reversedStr.begin(), reversedStr.end());
+    return cleanedStr == reversedStr;
+}
 
+int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    std::string input;
+    std::cout << "Введіть рядок: ";
+    std::getline(std::cin, input);
 
-    cout << "Кількість слів: " << wordCount << endl;
+    if (isPalindrome(input)) {
+        std::cout << "Рядок є паліндромом." << std::endl;
+    }
+    else {
+        std::cout << "Рядок не є паліндромом." << std::endl;
+    }
 
     return 0;
 }
