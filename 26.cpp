@@ -103,39 +103,69 @@
 //
 //    return 0;
 //}
-
+//
+//#include <iostream>
+//#include <string>
+//#include <Windows.h>
+//using namespace std;
+//
+//int main() {
+//    string str;
+//    int letter = 0, digit = 0, other = 0;
+//
+//    SetConsoleCP(1251);
+//    SetConsoleOutputCP(1251); 
+//
+//    cout << "Введіть рядок: ";
+//    getline(cin, str);
+//
+//
+//    for (int i = 0; i < str.length(); i++) {
+//        if (isalpha(str[i])) {
+//            letter++;
+//        }
+//        else if (isdigit(str[i])) {
+//            digit++;
+//        }
+//        else {
+//            other++;
+//        }
+//    }
+//
+//
+//    cout << "Кількість літер: " << letter << endl;
+//    cout << "Кількість цифр: " << digit << endl;
+//    cout << "Кількість інших символів: " << other << endl;
+//
+//    return 0;
+//}
 #include <iostream>
 #include <string>
 #include <Windows.h>
 using namespace std;
 
 int main() {
-    string str;
-    int letter = 0, digit = 0, other = 0;
-
+    string sentence;
+    int wordCount = 0;
     SetConsoleCP(1251);
-    SetConsoleOutputCP(1251); 
+    SetConsoleOutputCP(1251);
+    cout << "Введіть речення: ";
+    getline(cin, sentence);
 
-    cout << "Введіть рядок: ";
-    getline(cin, str);
-
-
-    for (int i = 0; i < str.length(); i++) {
-        if (isalpha(str[i])) {
-            letter++;
+    // Підрахунок слів
+    bool inWord = false;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (isspace(sentence[i])) {
+            inWord = false;
         }
-        else if (isdigit(str[i])) {
-            digit++;
-        }
-        else {
-            other++;
+        else if (!inWord) {
+            inWord = true;
+            wordCount++;
         }
     }
 
 
-    cout << "Кількість літер: " << letter << endl;
-    cout << "Кількість цифр: " << digit << endl;
-    cout << "Кількість інших символів: " << other << endl;
+    cout << "Кількість слів: " << wordCount << endl;
 
     return 0;
 }
