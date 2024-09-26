@@ -2,7 +2,7 @@
 #include <sstream>
 #include <Windows.h>
 using namespace std;
-
+//task1
 bool isValidIpAddress(string ip) {
     stringstream s(ip);
     string seg;
