@@ -83,23 +83,59 @@
 //    return 0;
 //}
 
+//#include <iostream>
+//#include <string>
+//#include <Windows.h>
+//using namespace std;
+//
+//int main() {
+//    SetConsoleCP(1251);
+//    SetConsoleOutputCP(1251); 
+//    string str;
+//    cout << "Введіть рядок: ";
+//    getline(cin, str);  
+//    for (int i = 0; i < str.length(); i++) {
+//        if (str[i] == ' ') {
+//            str[i] = '\t';
+//        }
+//    }
+//    cout << "Рядок з табуляціями: " << endl << str << endl;
+//
+//    return 0;
+//}
+
 #include <iostream>
 #include <string>
 #include <Windows.h>
 using namespace std;
 
 int main() {
+    string str;
+    int letter = 0, digit = 0, other = 0;
+
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251); 
-    string str;
+
     cout << "Введіть рядок: ";
-    getline(cin, str);  
+    getline(cin, str);
+
+
     for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            str[i] = '\t';
+        if (isalpha(str[i])) {
+            letter++;
+        }
+        else if (isdigit(str[i])) {
+            digit++;
+        }
+        else {
+            other++;
         }
     }
-    cout << "Рядок з табуляціями: " << endl << str << endl;
+
+
+    cout << "Кількість літер: " << letter << endl;
+    cout << "Кількість цифр: " << digit << endl;
+    cout << "Кількість інших символів: " << other << endl;
 
     return 0;
 }
