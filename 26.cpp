@@ -43,43 +43,63 @@
 //    return 0;
 //}
 
+//#include <iostream>
+//#include <string>
+//#include <algorithm> // для transform
+//#include <Windows.h>
+//using namespace std;
+//
+//int main() {
+//    string students[5];
+//    SetConsoleCP(1251);
+//    SetConsoleOutputCP(1251); 
+//
+//    cout << "Введіть 5 прізвищ студентів:" << endl;
+//    for (int i = 0; i < 5; i++) {
+//        cout << "Студент " << i + 1 << ": ";
+//        cin >> students[i];
+//
+//        
+//        transform(students[i].begin(), students[i].end(), students[i].begin(), ::tolower);
+//    }
+//
+//    for (int i = 0; i < 4; i++) {
+//        for (int j = i + 1; j < 5; j++) {
+//            if (students[i] < students[j]) {
+//               
+//                string temp = students[i];
+//                students[i] = students[j];
+//                students[j] = temp;
+//            }
+//        }
+//    }
+//
+//    
+//    cout << "\nВідсортовані прізвища за спаданням:" << endl;
+//    for (int i = 0; i < 5; i++) {
+//        cout << students[i] << endl;
+//    }
+//
+//    return 0;
+//}
+
 #include <iostream>
 #include <string>
-#include <algorithm> // для transform
 #include <Windows.h>
 using namespace std;
 
 int main() {
-    string students[5];
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251); 
-
-    cout << "Введіть 5 прізвищ студентів:" << endl;
-    for (int i = 0; i < 5; i++) {
-        cout << "Студент " << i + 1 << ": ";
-        cin >> students[i];
-
-        
-        transform(students[i].begin(), students[i].end(), students[i].begin(), ::tolower);
-    }
-
-    for (int i = 0; i < 4; i++) {
-        for (int j = i + 1; j < 5; j++) {
-            if (students[i] < students[j]) {
-               
-                string temp = students[i];
-                students[i] = students[j];
-                students[j] = temp;
-            }
+    string str;
+    cout << "Введіть рядок: ";
+    getline(cin, str);  
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            str[i] = '\t';
         }
     }
-
-    
-    cout << "\nВідсортовані прізвища за спаданням:" << endl;
-    for (int i = 0; i < 5; i++) {
-        cout << students[i] << endl;
-    }
+    cout << "Рядок з табуляціями: " << endl << str << endl;
 
     return 0;
 }
-
